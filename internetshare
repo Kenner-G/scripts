@@ -1,0 +1,6 @@
+ip link set up dev eth0
+ip addr add 192.168.137.1/24 dev eth0 
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -A POSTROUTING -o wlan1 -j MASQUERADE
+iptables -A FORWARD -i eth0 -o wlan1 -j ACCEPT
+iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
