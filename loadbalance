@@ -1,0 +1,17 @@
+#!/bin/bash
+
+IF=$1
+STATUS=$2
+
+if [ "$IF" == "wlan0" ]
+then
+    case "$2" in
+        up)
+        ip route del default scope global ; ip route add default scope global nexthop via 192.168.0.1 dev eth0 weight 1 nexthop via 192.168.1.1 dev wlan0 weight 1
+        ;;
+   esac
+fi
+
+#Put it on /etc/NetworkManager/dispatcher.d/ and name it as 90loadbalance.sh. 
+#This "90" in the name of the script means that this script will be executed in the last 10% of all scripts if you have a bunch of scripts to execute. 
+#Dont forget to make it executable. 
