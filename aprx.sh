@@ -1,7 +1,7 @@
 #!/bin/sh
 #       script untuk update uptime dan temperature kepada satu baris tulisan
 #       untuk dibaca oleh aprx 2.7
-#
+#       9M2PJU (2013)
 
 #mula-mula delete existing files
 rm -rf beacon* && rm -rf temp* && rm -rf uptime*
