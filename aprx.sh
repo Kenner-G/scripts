@@ -17,7 +17,7 @@ uptime > uptime.txt
 cat /root/latlong.txt >> /root/beacon.txt && cat uptime.txt >> /root/beacon.txt 
 #&& cat temp2.txt >> /root/beacon.txt
 
-#allignment nilai uptime kepada satu line
+#tulis nilai uptime kepada satu line
 awk 'NR%2{printf $0" ";next;}1' /root/beacon.txt > /root/beacon2.txt
 
 #allignment nilai temperature kepada satu line
